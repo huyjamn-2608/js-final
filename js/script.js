@@ -1,10 +1,5 @@
-// ============================================
-// IMAGE GALLERY - HOVER TO DISPLAY
-// ============================================
 
 function upDate(previewPic) {
-    // 1) Thay đổi background image của #image thành src của ảnh đang hover
-    // 2) Thay đổi text của #image thành alt của ảnh đang hover
 
     console.log("upDate function called!");
     console.log("Alt: " + previewPic.alt);
@@ -16,8 +11,7 @@ function upDate(previewPic) {
 }
 
 function unDo() {
-    // 1) Đưa background image của #image về ban đầu (rỗng)
-    // 2) Đưa text về ban đầu
+
 
     console.log("unDo function called!");
 
@@ -25,10 +19,6 @@ function unDo() {
     imageDiv.style.backgroundImage = "url('')";
     imageDiv.innerHTML = "Hover over an image below to display here.";
 }
-
-// ============================================
-// PAGE NAVIGATION WITH SLIDE ANIMATION
-// ============================================
 
 const pageOrder = {
     'index.html': 1,
