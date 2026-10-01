@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html" class="active">About</a></li>
+                <li><a href="myDreamJob.html">My Dream Job</a></li>
+            </ul>
+        </nav>
+        <h1>About Me</h1>
+    </header>
+
+    <main id="main-content">
+        <div class="content">
+            <h2>Who Am I?</h2>
+            <p>Hello! My name is Nguyen Gia Huy. I am a second-year student at FPT School. This is my first personal website where I share my hobbies and interests.</p>
+
+            <h2>My Hobbies</h2>
+            <p>I have two main hobbies that I really enjoy:</p>
+            <ul>
+                <li>
+                    <strong>Playing Badminton:</strong> I love playing badminton with my friends. It keeps me active and healthy.
+                    <div class="image-row">
+                        <img class="content-image" src="image/477047897_1175192920994015_4192671561403890115_n.jpg" width="200" alt="Badminton player jumping">
+                        <img class="content-image" src="image/images (3).jpg" width="200" alt="Badminton racket and shuttlecock">
+                        <img class="content-image" src="image/images (4).jpg" width="200" alt="Badminton match in progress">
+                    </div>
+                </li>
+                <li>
+                    <strong>Cat:</strong> I have a fondness for cats, especially breeds like the British Shorthair and Persian.
+                    <div class="image-row">
+                        <img class="content-image" src="image/images.jpg" width="200" alt="White fluffy cat">
+                        <img class="content-image" src="image/images (1).jpg" width="200" alt="White cat with yellow eyes">
+                        <img class="content-image" src="image/images (2).jpg" width="200" alt="Gray British Shorthair cat">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+      const pageOrder = {
+        'index.html': 1,
+        'About.html': 2,
+        'myDreamJob.html': 3
+      };
+
+      function getCurrentPage() {
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+        return pageOrder[path] || 1;
+      }
+
+      function getTargetPage(href) {
+        const filename = href.split('/').pop().split('#')[0] || 'index.html';
+        return pageOrder[filename] || 1;
+      }
+
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.href && !this.href.includes('#')) {
+            e.preventDefault();
+
+            const currentPage = getCurrentPage();
+            const targetPage = getTargetPage(this.getAttribute('href'));
+
+            let outClass, inClass;
+
+            if (targetPage > currentPage) {
+              outClass = 'slide-out-left';
+              inClass = 'slide-in-left';
+            } else if (targetPage < currentPage) {
+              outClass = 'slide-out-right';
+              inClass = 'slide-in-right';
+            } else {
+              window.location.href = this.href;
+              return;
+            }
+
+            sessionStorage.setItem('slideDirection', inClass);
+            document.body.classList.add(outClass);
+
+            setTimeout(() => {
+              window.location.href = this.href;
+            }, 600);
+          }
+        });
+      });
+
+      window.addEventListener('load', function() {
+        const direction = sessionStorage.getItem('slideDirection');
+        if (direction) {
+          document.body.classList.add(direction);
+          sessionStorage.removeItem('slideDirection');
+        }
+      });
+    </script>
+</body>
+</html>

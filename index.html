@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="myDreamJob.html">My Dream Job</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to My First Page</h1>
+        <img class="content-image" src="image/cat-meme-wave-emoji.png" width="200" alt="A cat waving">
+    </header>
+
+    <main id="main-content">
+        <div class="content">
+            <h2>About Me</h2>
+            <p>This is my first page. I am learning how to create a website using HTML and CSS. I am excited to share my favorite sport and my pet with you.</p>
+            <p>My favorite sport is <a href="https://vi.wikipedia.org/wiki/C%E1%BA%A7u_l%C3%B4ng">badminton</a>. I love playing badminton with my friends and watching professional games on TV.</p>
+            <p>My pet is a <a href="https://en.wikipedia.org/wiki/Cat">cat</a>. I have a cute little cat named Moew. He is very playful and loves to go for walks in the park.</p>
+
+            <h2>My Badminton Gallery</h2>
+
+            <!-- Khung ảnh lớn -->
+            <div id="image">
+                Hover over an image below to display here.
+            </div>
+
+            <!-- 3 ảnh nhỏ -->
+            <div class="image-row">
+                <img class="preview"
+                     src="image/477047897_1175192920994015_4192671561403890115_n.jpg"
+                     alt="Badminton player jumping"
+                     onmouseover="upDate(this)"
+                     onmouseout="unDo()">
+
+                <img class="preview"
+                     src="image/images (3).jpg"
+                     alt="Badminton racket and shuttlecock"
+                     onmouseover="upDate(this)"
+                     onmouseout="unDo()">
+
+                <img class="preview"
+                     src="image/images (4).jpg"
+                     alt="Badminton match in progress"
+                     onmouseover="upDate(this)"
+                     onmouseout="unDo()">
+            </div>
+        </div>
+        <p class="copyright">Copyright &copy; 2024 Nguyen Gia Huy. All rights reserved.</p>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
